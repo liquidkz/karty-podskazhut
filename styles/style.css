@@ -2,6 +2,7 @@
     --bg-color: #F3EFEC;
     --text-color: #312A4E;
     --accent-color: #FFAB6B;
+    --border-color: #FFAB6B;
     --main-font: Raleway, Sans-Serif;
     --accent-font: 'STIX Two Text', sans-serif;
 }
@@ -146,6 +147,7 @@ figure {
     padding-right: 4px;
     margin-left: 3px;
     font-weight: bold;
+    border: 1px solid var(--border-color);
 }
 
 .content__picture {
@@ -214,6 +216,7 @@ article.content__card h3.content__card-title.heading {
     border: none;
     text-align: right;
     line-height: 8px;
+    font-size: 18px;
 }
 
 
@@ -233,7 +236,11 @@ article.content__card h3.content__card-title.heading {
     font-weight: bold;
 }
 
-.header__theme-button:focus::after {
+.header__theme-button:disabled {
+    font-weight: bold;
+}
+
+.header__theme-button:disabled::after {
     display: block;
 }
 
@@ -250,9 +257,14 @@ article.content__card h3.content__card-title.heading {
 }
 
 body.theme_dark {
-    --bg-color: black; /* Define the background color for dark theme */
-    --accent-color: #FFA56B; /* Define the accent color for dark theme */
-    --text-color: #B3B3B3; /* Define the text color for dark theme */
+    --bg-color: black;
+    --accent-color: transperent;
+    --text-color: #B3B3B3;
+    --border-color: #B3B3B3;
     background-color: var(--bg-color);
     color: var(--text-color);
+}
+
+.page.theme_dark .content__list li::before {
+    background-image: url("../images/marker-dark.svg");
 }
