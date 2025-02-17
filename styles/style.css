@@ -49,11 +49,12 @@ figure {
 
 .header__menu {
     display: flex;
-    width: 100vw;
+    width: 100%;
     align-items: center;
     padding-top: 26px;
     padding-bottom: 26px;
-    border: 1px solid var(--text-color);
+    border-top: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
     justify-content: space-between;
 }
 
@@ -93,6 +94,11 @@ figure {
 
 .links {
     color: inherit;
+    text-decoration: none;
+}
+
+.links:hover {
+    text-decoration: underline;
 }
 
 .quote {
@@ -144,12 +150,24 @@ figure {
 
 .content__picture {
     width: 100%;
+    object-fit: contain;
 }
 
 .content__figure {
     width: calc(100% + 10vw);
     position: relative;
     Left: -5vw;
+    border-bottom: 1px solid var(--text-color);
+    margin-bottom: 91px;
+}
+
+.content__figure-caption {
+    text-align: center;
+    margin: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21.13px;
+    letter-spacing: 0;
 }
 
 .colored-text {
@@ -172,7 +190,7 @@ figure {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     aspect-ratio: 4 / 3;
     margin-top: 7%;
 }
@@ -187,5 +205,54 @@ article.content__card h3.content__card-title.heading {
     font-size: 3.375rem;
 }
 
+.header__theme-button {
+    font-family: inherit;
+    color: var(--text-color);
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    text-align: right;
+    line-height: 8px;
+}
 
 
+.header__theme-button::after {
+    content: '';
+    display: none;
+    height: 0.3em;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--accent-color);
+}
+
+.header__theme-button:focus {
+    font-weight: bold;
+}
+
+.header__theme-button:focus::after {
+    display: block;
+}
+
+.footer {
+    width: 100%;
+}
+
+.footer__copyright {
+    text-align: center;
+    margin-top: 10%;
+    padding: 2.5%;
+    color: var(--text-color);
+    border-top: 1px solid var(--text-color);
+}
+
+body.theme_dark {
+    --bg-color: black; /* Define the background color for dark theme */
+    --accent-color: #FFA56B; /* Define the accent color for dark theme */
+    --text-color: #B3B3B3; /* Define the text color for dark theme */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
